@@ -20,3 +20,15 @@ function subtract(...args) {
   }
   return result;
 }
+
+// Multiplication Function
+function multiply(...args) {
+  if (args.length === 0) {
+    return 0;
+  }
+  let result = args[0];
+  for (let i = 1; i < args.length; i++) {
+    result *= args[i];
+  }
+  return result;
+}
