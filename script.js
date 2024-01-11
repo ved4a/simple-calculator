@@ -9,4 +9,14 @@ function sum(...args) {
   return total;
 }
 
-console.log(sum(2, 3, 4, 1));
+// Subtraction Function
+function subtract(...args) {
+  if (args.length === 0) {
+    return 0;
+  }
+  let result = args[0];
+  for (let i = 1; i < args.length; i++) {
+    result -= args[i];
+  }
+  return result;
+}
