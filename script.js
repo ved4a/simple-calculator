@@ -1,4 +1,7 @@
 "use strict";
+let firstNumber;
+let secondNumber;
+let currentOperator;
 
 // Addition
 const sum = (a, b) => a + b;
