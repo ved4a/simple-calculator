@@ -43,6 +43,8 @@ main {
   padding: 5px 15px;
   min-height: 120px;
   height: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .digits {

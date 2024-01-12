@@ -104,6 +104,9 @@ const multiply = (a, b) => a * b;
 // Division Function
 const divide = (a, b) => a / b;
 
+// Remainder Function
+const remainder = (a, b) => a % b;
+
 // Operate Function
 function operate(operator, a, b) {
   a = Number(a);
@@ -118,6 +121,9 @@ function operate(operator, a, b) {
     case "÷":
       if (b === 0) return null;
       else return divide(a, b);
+    case "%":
+      if (b === 0) return null;
+      else return remainder(a, b);
     default:
       return null;
   }
