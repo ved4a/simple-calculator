@@ -13,6 +13,7 @@ const allClearBtn = document.getElementById("allClear");
 const clearBtn = document.getElementById("clear");
 const decimal = document.getElementById("decimal");
 
+// All Event Listeners
 numberBtns.forEach((button) =>
   button.addEventListener("click", () => displayNumber(button.textContent))
 );
@@ -20,6 +21,11 @@ numberBtns.forEach((button) =>
 operatorBtns.forEach((button) =>
   button.addEventListener("click", () => doOperation(button.textContent))
 );
+
+equalBtn.addEventListener("click", evaluate);
+allClearBtn.addEventListener("click", clearDisplay);
+clearBtn.addEventListener("click", deleteNumber);
+decimal.addEventListener("click", displayPoint);
 
 let firstNumber;
 let secondNumber;
