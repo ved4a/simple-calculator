@@ -1,14 +1,25 @@
 "use strict";
+// Variables for Display
 const currentDisplay = document.getElementById("current-display");
 const prevDisplay = document.getElementById("past-operation");
 
+// Variables for Calculation
 const numberBtns = document.querySelectorAll("[allDigits]");
 const operatorBtns = document.querySelectorAll("[allOperators]");
 
+// More Variables for Calculation
 const equalBtn = document.getElementById("equal");
 const allClearBtn = document.getElementById("allClear");
 const clearBtn = document.getElementById("clear");
 const decimal = document.getElementById("decimal");
+
+numberBtns.forEach((button) =>
+  button.addEventListener("click", () => displayNumber(button.textContent))
+);
+
+operatorBtns.forEach((button) =>
+  button.addEventListener("click", () => doOperation(button.textContent))
+);
 
 let firstNumber;
 let secondNumber;
