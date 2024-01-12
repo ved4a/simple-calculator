@@ -68,6 +68,7 @@ function doOperation(operator) {
   currentOperation = operator;
   resetScreen();
   prevDisplay.textContent = `${firstNumber} ${currentOperation}`;
+  doScreenReset = true;
 }
 
 function clearDisplay() {

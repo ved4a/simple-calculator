@@ -13,6 +13,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   background-color: var(--BACKGROUND-COLOR);
+  margin: 0;
 }
 
 main {
@@ -40,7 +41,7 @@ main {
   border: 1px solid var(--CALCULATOR-SCREEN);
   border-radius: 20px;
   padding: 5px 15px;
-  min-height: 100px;
+  min-height: 120px;
   height: 100%;
 }
 
@@ -99,10 +100,20 @@ main {
   transform: translateY(-0.15rem);
 }
 
+#past-operation,
+#current-display {
+  text-align: right;
+  box-sizing: border-box;
+}
+
 #past-operation {
   color: var(--TEXT-COLOR);
+  min-height: 30px;
+  font-size: 30px;
 }
 
 #current-display {
   color: var(--DARK-TEXT);
+  font-weight: bold;
+  font-size: 50px;
 }
