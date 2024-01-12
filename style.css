@@ -7,10 +7,12 @@
   --DARK-TEXT: rgb(2, 22, 0);
   --HOVER-OPERATOR: rgb(255, 207, 117);
   --HOVER-DIGIT: #dbd8d4;
+  --BACKGROUND-COLOR: #d9d9d9;
 }
 
 body {
   font-family: "Open Sans", sans-serif;
+  background-color: var(--BACKGROUND-COLOR);
 }
 
 main {
