@@ -1,4 +1,6 @@
 "use strict";
+const display = document.getElementById("display");
+
 let firstNumber;
 let secondNumber;
 let currentOperator;
