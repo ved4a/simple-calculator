@@ -21,9 +21,11 @@ main {
 }
 
 .calculator {
-  width: 385px;
+  max-width: 300px;
+  width: 100%;
   background-color: var(--CALCULATOR-COLOR);
-  border: 1px solid var(--CALCULATOR-COLOR);
+  border: 0px solid transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   padding: 20px;
 }
@@ -33,25 +35,44 @@ main {
   border: 1px solid var(--CALCULATOR-SCREEN);
   border-radius: 20px;
   padding: 10px;
+  max-height: 100px;
+  height: 100%;
 }
 
 .digits {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
+  grid-gap: 0.5em;
+  padding: 10px;
+  height: 100%;
 }
 
 .btn {
   cursor: pointer;
-  height: 50px;
+  font-size: 20px;
+  padding: 1em 0;
+  font-weight: bold;
   border-radius: 30px;
   background-color: var(--CALCULATOR-COLOR);
-  border: 1px solid var(--CALCULATOR-COLOR);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  font-size: 20px;
+  border: 0px solid transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 30%;
   color: var(--TEXT-COLOR);
 }
 
 .large {
-  grid-column: span 1.5;
+  grid-column: 3 / 5;
+}
+
+.dark {
+  background-color: var(--TEXT-COLOR);
+  color: var(--CALCULATOR-COLOR);
+}
+
+.past-operation {
+  color: var(--TEXT-COLOR);
+}
+
+.current-display {
+  color: rgb(2, 22, 0);
 }
