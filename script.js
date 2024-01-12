@@ -1,5 +1,14 @@
 "use strict";
-const display = document.getElementById("display");
+const currentDisplay = document.getElementById("current-display");
+const prevDisplay = document.getElementById("past-operation");
+
+const numberBtns = document.querySelectorAll("[allDigits]");
+const operatorBtns = document.querySelectorAll("[allOperators]");
+
+const equalBtn = document.getElementById("equal");
+const allClearBtn = document.getElementById("allClear");
+const clearBtn = document.getElementById("clear");
+const decimal = document.getElementById("decimal");
 
 let firstNumber;
 let secondNumber;
