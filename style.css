@@ -4,6 +4,9 @@
   --CALCULATOR-SCREEN: #9fbbb3;
   --CALCULATOR-COLOR: #f0ece7;
   --TEXT-COLOR: #646261;
+  --DARK-TEXT: rgb(2, 22, 0);
+  --HOVER-OPERATOR: rgb(255, 207, 117);
+  --HOVER-DIGIT: #dbd8d4;
 }
 
 body {
@@ -60,7 +63,7 @@ main {
   color: var(--TEXT-COLOR);
 }
 
-.large {
+.equal {
   grid-column: 3 / 5;
 }
 
@@ -69,10 +72,34 @@ main {
   color: var(--CALCULATOR-COLOR);
 }
 
+.btn.operator:hover {
+  background-color: var(--HOVER-OPERATOR);
+  color: var(--DARK-TEXT);
+  transform: translateY(-0.15rem);
+}
+
+.btn.digit:hover,
+.btn.decimal:hover {
+  background-color: var(--HOVER-DIGIT);
+  transform: translateY(-0.15rem);
+}
+
+.btn.equal:hover {
+  background-color: var(--CALCULATOR-SCREEN);
+  color: var(--CALCULATOR-COLOR);
+  transform: translateY(-0.15rem);
+}
+
+.btn#clear:hover,
+.btn#allClear:hover {
+  background-color: var(--DARK-TEXT);
+  transform: translateY(-0.15rem);
+}
+
 .past-operation {
   color: var(--TEXT-COLOR);
 }
 
 .current-display {
-  color: rgb(2, 22, 0);
+  color: var(--DARK-TEXT);
 }
