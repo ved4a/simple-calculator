@@ -1,4 +1,10 @@
 "use strict";
+
+let firstNumber = "";
+let secondNumber = "";
+let currentOperation = null;
+let shouldResetScreen = false;
+
 // Variables for Display
 const currentDisplay = document.getElementById("current-display");
 const prevDisplay = document.getElementById("past-operation");
@@ -27,9 +33,62 @@ allClearBtn.addEventListener("click", clearDisplay);
 clearBtn.addEventListener("click", deleteNumber);
 decimal.addEventListener("click", displayPoint);
 
-let firstNumber;
-let secondNumber;
-let currentOperator;
+// Functions for Event Listeners
+function evaluate() {
+  if (currentOperation === null || shouldResetScreen) return;
+  if (currentOperation === "÷" && currentDisplay.textContent === "0") {
+    alert("You can't divide by 0!");
+    return;
+  }
+  secondNumber = currentDisplay.textContent;
+  currentDisplay.textContent = roundResult(
+    operate(currentOperation, firstNumber, secondNumber)
+  );
+  prevDisplay.textContent = `${firstNumber} ${currentOperation} ${secondNumber} =`;
+  currentOperation = null;
+}
+
+function roundResult(number) {
+  return Math.round(number * 1000) / 1000;
+}
+
+function resetScreen() {
+  currentDisplay.textContent = "";
+  shouldResetScreen = false;
+}
+
+function displayNumber(number) {
+  if (currentDisplay.textContent == 0 || doScreenReset) resetScreen();
+  currentDisplay.textContent += number;
+}
+
+function doOperation(operator) {
+  if (currentOperation !== false) evaluate();
+  firstNumber = currentDisplay.textContent;
+  currentOperation = operator;
+  prevDisplay.textContent = `${firstNumber} ${currentOperation}`;
+}
+
+function clearDisplay() {
+  currentDisplay.textContent = "0";
+  prevDisplay.textContent = "";
+  firstNumber = "";
+  secondNumber = "";
+  currentOperation = null;
+}
+
+function deleteNumber() {
+  currentDisplay.textContent = currentDisplay.textContent
+    .toString()
+    .slice(0, -1);
+}
+
+function displayPoint() {
+  if (shouldResetScreen) resetScreen();
+  if (currentDisplay.textContent === "") currentDisplay.textContent = "0";
+  if (currentDisplay.textContent.includes(".")) return;
+  currentDisplay.textContent += ".";
+}
 
 // Addition
 const sum = (a, b) => a + b;
