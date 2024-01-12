@@ -39,8 +39,8 @@ main {
   background-color: var(--CALCULATOR-SCREEN);
   border: 1px solid var(--CALCULATOR-SCREEN);
   border-radius: 20px;
-  padding: 10px;
-  max-height: 100px;
+  padding: 5px 15px;
+  min-height: 100px;
   height: 100%;
 }
 
@@ -99,10 +99,10 @@ main {
   transform: translateY(-0.15rem);
 }
 
-.past-operation {
+#past-operation {
   color: var(--TEXT-COLOR);
 }
 
-.current-display {
+#current-display {
   color: var(--DARK-TEXT);
 }

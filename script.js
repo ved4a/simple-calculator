@@ -3,15 +3,15 @@
 let firstNumber = "";
 let secondNumber = "";
 let currentOperation = null;
-let shouldResetScreen = false;
+let doScreenReset = false;
 
 // Variables for Display
 const currentDisplay = document.getElementById("current-display");
 const prevDisplay = document.getElementById("past-operation");
 
 // Variables for Calculation
-const numberBtns = document.querySelectorAll("[allDigits]");
-const operatorBtns = document.querySelectorAll("[allOperators]");
+const numberBtns = document.querySelectorAll(".digit");
+const operatorBtns = document.querySelectorAll(".operator");
 
 // More Variables for Calculation
 const equalBtn = document.getElementById("equal");
@@ -35,7 +35,7 @@ decimal.addEventListener("click", displayPoint);
 
 // Functions for Event Listeners
 function evaluate() {
-  if (currentOperation === null || shouldResetScreen) return;
+  if (currentOperation === null || doScreenReset) return;
   if (currentOperation === "÷" && currentDisplay.textContent === "0") {
     alert("You can't divide by 0!");
     return;
@@ -54,7 +54,7 @@ function roundResult(number) {
 
 function resetScreen() {
   currentDisplay.textContent = "";
-  shouldResetScreen = false;
+  doScreenReset = false;
 }
 
 function displayNumber(number) {
@@ -63,9 +63,10 @@ function displayNumber(number) {
 }
 
 function doOperation(operator) {
-  if (currentOperation !== false) evaluate();
+  if (currentOperation !== null) evaluate();
   firstNumber = currentDisplay.textContent;
   currentOperation = operator;
+  resetScreen();
   prevDisplay.textContent = `${firstNumber} ${currentOperation}`;
 }
 
@@ -84,7 +85,7 @@ function deleteNumber() {
 }
 
 function displayPoint() {
-  if (shouldResetScreen) resetScreen();
+  if (doScreenReset) resetScreen();
   if (currentDisplay.textContent === "") currentDisplay.textContent = "0";
   if (currentDisplay.textContent.includes(".")) return;
   currentDisplay.textContent += ".";
@@ -108,12 +109,12 @@ function operate(operator, a, b) {
   b = Number(b);
   switch (operator) {
     case "+":
-      return add(a, b);
+      return sum(a, b);
     case "-":
-      return substract(a, b);
-    case "*":
+      return subtract(a, b);
+    case "×":
       return multiply(a, b);
-    case "/":
+    case "÷":
       if (b === 0) return null;
       else return divide(a, b);
     default:
